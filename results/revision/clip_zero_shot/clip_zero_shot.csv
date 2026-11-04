@@ -1,0 +1,49 @@
+model,prompts,images,n,macro_f1,accuracy
+ViT-B-32 (laion2b_s34b_b79k),name,test,419,0.4483,0.4153
+ViT-B-32 (laion2b_s34b_b79k),name,test single,255,0.3909,0.3725
+ViT-B-32 (laion2b_s34b_b79k),name,test multi,164,0.5317,0.4817
+ViT-B-32 (laion2b_s34b_b79k),name,all images,2950,0.4548,0.438
+ViT-B-32 (laion2b_s34b_b79k),name+templates,test,419,0.4372,0.401
+ViT-B-32 (laion2b_s34b_b79k),name+templates,test single,255,0.3934,0.3765
+ViT-B-32 (laion2b_s34b_b79k),name+templates,test multi,164,0.5078,0.439
+ViT-B-32 (laion2b_s34b_b79k),name+templates,all images,2950,0.4414,0.4207
+ViT-B-32 (laion2b_s34b_b79k),local+description,test,419,0.5488,0.5537
+ViT-B-32 (laion2b_s34b_b79k),local+description,test single,255,0.5597,0.5647
+ViT-B-32 (laion2b_s34b_b79k),local+description,test multi,164,0.531,0.5366
+ViT-B-32 (laion2b_s34b_b79k),local+description,all images,2950,0.532,0.5393
+ViT-B-16 (openai),name,test,419,0.3163,0.3317
+ViT-B-16 (openai),name,test single,255,0.2668,0.2863
+ViT-B-16 (openai),name,test multi,164,0.4151,0.4024
+ViT-B-16 (openai),name,all images,2950,0.3342,0.3464
+ViT-B-16 (openai),name+templates,test,419,0.3166,0.3294
+ViT-B-16 (openai),name+templates,test single,255,0.2619,0.2784
+ViT-B-16 (openai),name+templates,test multi,164,0.4181,0.4085
+ViT-B-16 (openai),name+templates,all images,2950,0.3333,0.3431
+ViT-B-16 (openai),local+description,test,419,0.5058,0.4964
+ViT-B-16 (openai),local+description,test single,255,0.4512,0.451
+ViT-B-16 (openai),local+description,test multi,164,0.5804,0.5671
+ViT-B-16 (openai),local+description,all images,2950,0.5227,0.5183
+ViT-L-14 (openai),name,test,419,0.5862,0.5823
+ViT-L-14 (openai),name,test single,255,0.5803,0.6039
+ViT-L-14 (openai),name,test multi,164,0.6018,0.5488
+ViT-L-14 (openai),name,all images,2950,0.5838,0.578
+ViT-L-14 (openai),name+templates,test,419,0.6334,0.6158
+ViT-L-14 (openai),name+templates,test single,255,0.6126,0.6235
+ViT-L-14 (openai),name+templates,test multi,164,0.6618,0.6037
+ViT-L-14 (openai),name+templates,all images,2950,0.6182,0.6071
+ViT-L-14 (openai),local+description,test,419,0.7073,0.7041
+ViT-L-14 (openai),local+description,test single,255,0.6946,0.698
+ViT-L-14 (openai),local+description,test multi,164,0.7058,0.7134
+ViT-L-14 (openai),local+description,all images,2950,0.6963,0.702
+ViT-L-14 (laion2b_s32b_b82k),name,test,419,0.5496,0.5465
+ViT-L-14 (laion2b_s32b_b82k),name,test single,255,0.5281,0.5412
+ViT-L-14 (laion2b_s32b_b82k),name,test multi,164,0.5706,0.5549
+ViT-L-14 (laion2b_s32b_b82k),name,all images,2950,0.5122,0.5122
+ViT-L-14 (laion2b_s32b_b82k),name+templates,test,419,0.5598,0.5537
+ViT-L-14 (laion2b_s32b_b82k),name+templates,test single,255,0.5267,0.5412
+ViT-L-14 (laion2b_s32b_b82k),name+templates,test multi,164,0.6031,0.5732
+ViT-L-14 (laion2b_s32b_b82k),name+templates,all images,2950,0.5371,0.5376
+ViT-L-14 (laion2b_s32b_b82k),local+description,test,419,0.6665,0.6611
+ViT-L-14 (laion2b_s32b_b82k),local+description,test single,255,0.6656,0.6745
+ViT-L-14 (laion2b_s32b_b82k),local+description,test multi,164,0.6653,0.6402
+ViT-L-14 (laion2b_s32b_b82k),local+description,all images,2950,0.6287,0.6366

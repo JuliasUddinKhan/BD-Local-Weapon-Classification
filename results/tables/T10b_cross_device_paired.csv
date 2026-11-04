@@ -1,0 +1,5 @@
+one_phone_model,images,n,full_model_f1 (trained on all phones),one_phone_model_f1 (never saw these phones),only_full_right,only_one_phone_right,mcnemar_p,mcnemar_p_holm
+F_iphone,non-iPhone test images,256,0.9962,0.5459,111,0,0.0,0.0
+F_iphone_bgremoved,non-iPhone test images,256,0.9962,0.5912,104,0,0.0,0.0
+F_iphone_camaug,non-iPhone test images,256,0.9962,0.5023,121,0,0.0,0.0
+LP_iphone,non-iPhone test images,256,0.9962,0.6193,98,0,0.0,0.0

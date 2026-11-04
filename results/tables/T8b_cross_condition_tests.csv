@@ -1,0 +1,9 @@
+model,test_images,n,in_condition_f1,cross_condition_f1,only_in_condition_right,only_cross_right,mcnemar_p,mcnemar_p_holm
+convnext_tiny,single,255,0.9957,0.8582,36,1,0.0,0.0
+convnext_tiny,multi,164,1.0,0.8308,30,0,0.0,0.0
+efficientnet_b0,single,255,1.0,0.5817,105,0,0.0,0.0
+efficientnet_b0,multi,164,1.0,0.6423,61,0,0.0,0.0
+resnet50,single,255,0.9872,0.5416,109,1,0.0,0.0
+resnet50,multi,164,0.9942,0.768,43,1,0.0,0.0
+vit_small_patch16_224,single,255,0.9957,0.6788,83,1,0.0,0.0
+vit_small_patch16_224,multi,164,1.0,0.669,55,0,0.0,0.0

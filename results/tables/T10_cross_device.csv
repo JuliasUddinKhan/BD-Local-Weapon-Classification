@@ -1,0 +1,21 @@
+model,training images,test images,n,macro_f1,f1_ci95,accuracy
+F_iphone,background kept,iPhone 14 test (same phone),163,1.0,"[1.000, 1.000]",1.0
+F_iphone,background kept,all other phones (unseen),1831,0.5338,"[0.513, 0.551]",0.556
+F_iphone,background kept,"  Galaxy M14 (classes: Churi, Khor)",538,0.8916,,0.8996
+F_iphone,background kept,"  Redmi Note 15 (classes: Dao, Kodal, Kural, Shabol)",647,0.4836,,0.5518
+F_iphone,background kept,"  WhatsApp (no camera EXIF) (classes: Churi, Dao, Kodal, Kural, Shabol)",646,0.2636,,0.274
+F_iphone_bgremoved,background removed,iPhone 14 test (same phone),163,0.9869,"[0.965, 1.000]",0.9877
+F_iphone_bgremoved,background removed,all other phones (unseen),1831,0.5947,"[0.577, 0.612]",0.6062
+F_iphone_bgremoved,background removed,"  Galaxy M14 (classes: Churi, Khor)",538,0.963,,0.9535
+F_iphone_bgremoved,background removed,"  Redmi Note 15 (classes: Dao, Kodal, Kural, Shabol)",647,0.5076,,0.5951
+F_iphone_bgremoved,background removed,"  WhatsApp (no camera EXIF) (classes: Churi, Dao, Kodal, Kural, Shabol)",646,0.3056,,0.3282
+F_iphone_camaug,camera-simulation augmentation,iPhone 14 test (same phone),163,1.0,"[1.000, 1.000]",1.0
+F_iphone_camaug,camera-simulation augmentation,all other phones (unseen),1831,0.5068,"[0.487, 0.526]",0.5319
+F_iphone_camaug,camera-simulation augmentation,"  Galaxy M14 (classes: Churi, Khor)",538,0.8853,,0.8941
+F_iphone_camaug,camera-simulation augmentation,"  Redmi Note 15 (classes: Dao, Kodal, Kural, Shabol)",647,0.4498,,0.5162
+F_iphone_camaug,camera-simulation augmentation,"  WhatsApp (no camera EXIF) (classes: Churi, Dao, Kodal, Kural, Shabol)",646,0.242,,0.2461
+LP_iphone,DINOv2 features + logistic regression,iPhone 14 test (same phone),163,0.9895,"[0.964, 1.000]",0.9939
+LP_iphone,DINOv2 features + logistic regression,all other phones (unseen),1831,0.613,"[0.595, 0.630]",0.6171
+LP_iphone,DINOv2 features + logistic regression,"  Galaxy M14 (classes: Churi, Khor)",538,0.9632,,0.9572
+LP_iphone,DINOv2 features + logistic regression,"  Redmi Note 15 (classes: Dao, Kodal, Kural, Shabol)",647,0.4863,,0.5935
+LP_iphone,DINOv2 features + logistic regression,"  WhatsApp (no camera EXIF) (classes: Churi, Dao, Kodal, Kural, Shabol)",646,0.3321,,0.3576

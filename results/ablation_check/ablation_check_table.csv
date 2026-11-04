@@ -1,0 +1,13 @@
+model,pipeline,setting,cv_macro_f1,cv_std,diff_vs_K1,better_folds,p,p_holm,significant,test_macro_f1
+ResNet-50,K1,"Reference (letterbox 224, RGB)",0.9948,0.0031,,,,,False,0.9951
+ResNet-50,K3,Letterbox 384,0.9976,0.0022,0.0029,4/5,0.1035,,False,0.9977
+ResNet-50,K6,Grayscale,0.9855,0.0043,-0.0093,0/5,0.014,,False,0.9952
+ResNet-50,K7,HSV,0.9868,0.0022,-0.008,0/5,0.0052,,False,0.9924
+ConvNeXt-Tiny,K1,"Reference (letterbox 224, RGB)",0.9943,0.0028,,,,,False,0.9977
+ConvNeXt-Tiny,K3,Letterbox 384,0.9984,0.0022,0.0041,4/5,0.0224,0.0941,False,0.9977
+ConvNeXt-Tiny,K6,Grayscale,0.9876,0.0022,-0.0067,0/5,0.0068,0.0406,True,0.9951
+ConvNeXt-Tiny,K7,HSV,0.992,0.0028,-0.0023,2/5,0.2193,0.6579,False,0.9932
+ViT-S/16,K1,"Reference (letterbox 224, RGB)",0.9952,0.0023,,,,,False,0.9954
+ViT-S/16,K3,Letterbox 384,0.996,0.0048,0.0009,3/5,0.7056,0.7056,False,0.9977
+ViT-S/16,K6,Grayscale,0.9832,0.0068,-0.012,0/5,0.0188,0.0941,False,0.9927
+ViT-S/16,K7,HSV,0.9907,0.0088,-0.0045,2/5,0.2541,0.6579,False,0.9901

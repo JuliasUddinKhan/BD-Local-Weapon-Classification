@@ -1,0 +1,9 @@
+scenario,model,image_id,subset,true,predicted,conf,p_true
+E2,resnet50,3880e241521f,single,Kodal,Kural,0.569,0.341
+E1,convnext_tiny,3b2b02d1c68a,single,Kodal,Dao,0.583,0.121
+E1,resnet50,3b2b02d1c68a,single,Kodal,Dao,0.599,0.098
+E2,resnet50,3b2b02d1c68a,single,Kodal,Dao,0.377,0.238
+E3,resnet50,86592ae7378d,multi,Kural,Shabol,0.663,0.199
+E2,convnext_tiny,cf6567946825,single,Churi,Kodal,0.454,0.145
+E2,resnet50,cf6567946825,single,Churi,Kodal,0.255,0.114
+E2,vit_small_patch16_224,cf6567946825,single,Churi,Kodal,0.264,0.26

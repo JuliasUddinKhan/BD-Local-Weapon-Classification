@@ -1,0 +1,5 @@
+,Churi,Dao,Khor,Kodal,Kural,Shabol
+ResNet-50,54,13,7,17,1,20
+EfficientNet-B0,41,62,3,2,2,2
+ConvNeXt-Tiny,40,12,7,23,6,24
+ViT-S/16,36,33,4,10,6,23

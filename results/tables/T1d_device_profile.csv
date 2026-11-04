@@ -1,0 +1,5 @@
+device,images,median_megapixels,median_long_side_px,median_sharpness
+Galaxy M14,538,12.58,4096.0,201.77
+Redmi Note 15,647,12.0,4000.0,1080.49
+WhatsApp (no camera EXIF),646,1.92,1600.0,1417.66
+iPhone 14,1119,12.19,4032.0,397.78

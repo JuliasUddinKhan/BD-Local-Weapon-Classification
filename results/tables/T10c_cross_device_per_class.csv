@@ -1,0 +1,7 @@
+class,F_iphone: same phone,F_iphone: unseen phones,F_iphone_bgremoved: same phone,F_iphone_bgremoved: unseen phones,F_iphone_camaug: same phone,F_iphone_camaug: unseen phones,LP_iphone: same phone,LP_iphone: unseen phones
+Churi,1.0,1.0,0.962,0.959,1.0,1.0,0.962,0.978
+Dao,1.0,1.0,1.0,0.974,1.0,0.996,1.0,0.996
+Khor,1.0,0.758,1.0,0.946,1.0,0.744,1.0,0.928
+Kodal,1.0,0.028,1.0,0.045,1.0,0.058,1.0,0.1
+Kural,1.0,0.393,1.0,0.325,1.0,0.415,1.0,0.251
+Shabol,1.0,0.426,0.973,0.706,1.0,0.231,1.0,0.752

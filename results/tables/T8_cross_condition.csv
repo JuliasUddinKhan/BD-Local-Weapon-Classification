@@ -1,0 +1,13 @@
+model,trained_on,test_single_macro_f1,test_single_acc,n_single,test_multi_macro_f1,test_multi_acc,n_multi,transfer_drop
+convnext_tiny,single,0.9957,0.9961,255,0.8308,0.8171,164,0.1648
+convnext_tiny,multi,0.8582,0.8588,255,1.0,1.0,164,0.1418
+convnext_tiny,all,0.996,0.9961,255,1.0,1.0,164,
+efficientnet_b0,single,1.0,1.0,255,0.6423,0.628,164,0.3577
+efficientnet_b0,multi,0.5817,0.5882,255,1.0,1.0,164,0.4183
+efficientnet_b0,all,1.0,1.0,255,1.0,1.0,164,
+resnet50,single,0.9872,0.9882,255,0.768,0.7378,164,0.2192
+resnet50,multi,0.5416,0.5647,255,0.9942,0.9939,164,0.4526
+resnet50,all,0.996,0.9961,255,1.0,1.0,164,
+vit_small_patch16_224,single,0.9957,0.9961,255,0.669,0.6646,164,0.3267
+vit_small_patch16_224,multi,0.6788,0.6745,255,1.0,1.0,164,0.3212
+vit_small_patch16_224,all,1.0,1.0,255,1.0,1.0,164,

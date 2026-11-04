@@ -1,0 +1,4 @@
+scenario,baseline,cv_macro_f1,cv_std,test_macro_f1,test_f1_ci95,best_fine_tuned,best_test_macro_f1,cv_diff_best_minus_lp,cv_p,mcnemar_best_only_right,mcnemar_lp_only_right,mcnemar_p
+all,DINOv2 ViT-S/14 frozen + logistic regression,0.9791,0.0077,0.9847,"[0.971, 0.995]",convnext_tiny,0.9977,0.0201,0.0061,5,0,0.0625
+single,DINOv2 ViT-S/14 frozen + logistic regression,0.9877,0.0062,0.9827,"[0.964, 0.996]",convnext_tiny,0.9957,0.0109,0.0043,3,0,0.25
+multi,DINOv2 ViT-S/14 frozen + logistic regression,0.989,0.007,0.9879,"[0.968, 1.000]",vit_small_patch16_224,1.0,0.009,0.0757,2,0,0.5

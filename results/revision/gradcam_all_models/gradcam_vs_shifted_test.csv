@@ -1,0 +1,5 @@
+model,n,on_weapon,on_shifted,images_above_shifted,wilcoxon_p
+convnext_tiny,406,0.3474,0.0157,0.9901,0.0
+efficientnet_b0,406,0.2515,0.0324,0.9877,0.0
+resnet50,406,0.2958,0.0154,0.9951,0.0
+vit_small_patch16_224,406,0.105,0.0781,0.4754,0.1581

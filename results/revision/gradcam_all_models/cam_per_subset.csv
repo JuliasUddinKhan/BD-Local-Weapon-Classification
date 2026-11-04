@@ -1,0 +1,9 @@
+model,subset,cam_on_shifted,cam_on_weapon
+convnext_tiny,multi,0.015,0.406
+convnext_tiny,single,0.013,0.307
+efficientnet_b0,multi,0.052,0.261
+efficientnet_b0,single,0.034,0.204
+resnet50,multi,0.017,0.348
+resnet50,single,0.015,0.267
+vit_small_patch16_224,multi,0.1,0.129
+vit_small_patch16_224,single,0.063,0.09

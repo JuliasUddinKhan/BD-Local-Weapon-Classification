@@ -1,0 +1,13 @@
+model,prompts,Churi,Dao,Khor,Kodal,Kural,Shabol
+ViT-B-16 (openai),local+description,0.809,0.367,0.823,0.09,0.571,0.388
+ViT-B-16 (openai),name,0.779,0.316,0.21,0.045,0.397,0.25
+ViT-B-16 (openai),name+templates,0.765,0.329,0.258,0.045,0.349,0.238
+ViT-B-32 (laion2b_s34b_b79k),local+description,0.765,0.266,0.742,0.448,0.302,0.8
+ViT-B-32 (laion2b_s34b_b79k),name,0.529,0.215,0.694,0.552,0.317,0.262
+ViT-B-32 (laion2b_s34b_b79k),name+templates,0.529,0.203,0.694,0.552,0.317,0.2
+ViT-L-14 (laion2b_s32b_b82k),local+description,0.824,0.38,0.935,0.806,0.381,0.688
+ViT-L-14 (laion2b_s32b_b82k),name,0.515,0.152,0.887,0.881,0.254,0.65
+ViT-L-14 (laion2b_s32b_b82k),name+templates,0.559,0.152,0.935,0.896,0.317,0.55
+ViT-L-14 (openai),local+description,0.824,0.392,1.0,0.582,0.794,0.712
+ViT-L-14 (openai),name,0.544,0.456,0.855,0.194,0.698,0.762
+ViT-L-14 (openai),name+templates,0.559,0.494,0.935,0.403,0.683,0.662
