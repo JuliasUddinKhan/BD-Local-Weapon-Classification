@@ -10,7 +10,7 @@ BD-LW is an image dataset of six traditional Bangladeshi implements that are use
 ## For reviewers
 
 - **Dataset:** download it from Mendeley Data: [https://doi.org/10.17632/byfmjny4bm.1](https://doi.org/10.17632/byfmjny4bm.1).
-- **Fixed split:** `splits/manifest.csv` gives the exact test set and cross-validation folds used in the manuscript.
+- **Fixed split:** the Mendeley archive holds all 3,075 original photographs. `splits/manifest.csv` lists the 2,950 images of the benchmark (column `source_file` gives the original file), with the exact test set and cross-validation folds; `splits/removed_duplicates.csv` lists the 125 near-duplicates that were removed. Stage 0 reproduces this curation from the original photographs.
 - **Results:** every table in the manuscript can be traced to a notebook (see the table below), and the CSV files behind the tables are in `results/`.
 - **Supplementary material:** `docs/supplementary_material.pdf` (also submitted to the journal) lists which notebook produces each result in Section S4.
 
@@ -18,19 +18,24 @@ BD-LW is an image dataset of six traditional Bangladeshi implements that are use
 
 ## Dataset at a glance
 
-| Class | Local name | English | Images |
-|---|---|---|---|
-| 0 | Churi | Knife | 521 |
-| 1 | Dao | Machete | 530 |
-| 2 | Khor | Straight razor | 471 |
-| 3 | Kodal | Hoe | 477 |
-| 4 | Kural | Axe | 477 |
-| 5 | Shabol | Iron crowbar | 474 |
-| | | **Total** | **2,950** |
+The Mendeley archive contains all **3,075** original photographs. Removing 125 near-duplicates leaves the **2,950** images used as the benchmark in the manuscript (listed in `splits/manifest.csv`).
 
-- **Single subset:** 1,776 images, one weapon per image
-- **Multi subset:** 1,174 images, several weapons of the same class
-- **Capture sources:** iPhone 14, Redmi Note 15, Samsung Galaxy M14, WhatsApp-shared
+| Class | Local name | English | Original photos | Benchmark images |
+|---|---|---|---|---|
+| 0 | Churi | Knife | 530 | 521 |
+| 1 | Dao | Machete | 533 | 530 |
+| 2 | Khor | Straight razor | 536 | 471 |
+| 3 | Kodal | Hoe | 482 | 477 |
+| 4 | Kural | Axe | 486 | 477 |
+| 5 | Shabol | Iron crowbar | 508 | 474 |
+| | | **Total** | **3,075** | **2,950** |
+
+| Subset | Original photos | Benchmark images |
+|---|---|---|
+| Single (one weapon per image) | 1,849 | 1,776 |
+| Multi (several weapons of the same class) | 1,226 | 1,174 |
+
+- **Capture sources (benchmark):** iPhone 14 (1,119), Redmi Note 15 (647), Samsung Galaxy M14 (538), WhatsApp-shared (646)
 - **Fixed split:** a locked test set of 419 images and five cross-validation folds, built so that near-identical photos never cross the split
 
 <p align="center">
@@ -59,8 +64,11 @@ BD-Local-Weapon-Classification/
 │   ├── nb12-merge-and-statistics.ipynb
 │   └── nb13-misclassified-test-images.ipynb
 ├── splits/
-│   ├── manifest.csv          # image ID, path, class, subset, split, fold, similarity group, size
+│   ├── manifest.csv          # the 2,950 benchmark images: original file, class, subset, capture source, split, fold, group
+│   ├── removed_duplicates.csv# the 125 near-duplicates removed from the 3,075 original photos
 │   ├── class_map.json
+│   ├── test.txt              # image IDs of the locked test set (419)
+│   └── fold0.txt … fold4.txt # image IDs of each cross-validation fold
 ├── results/                  # CSV files behind the tables (see results/README.md)
 │   ├── tables/               # main analysis (Notebook 3)
 │   ├── gradcam_scenarios/    # Notebook 5
