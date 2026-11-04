@@ -42,32 +42,39 @@ BD-LW is an image dataset of six traditional Bangladeshi implements that are use
 ## Repository structure
 
 ```
-bd-lw-benchmark/
-├── notebooks/
-│   ├── 00_stage0_curation.ipynb
-│   ├── 01_background_removal.ipynb
-│   ├── 02_training_scenarios.ipynb
-│   ├── 03_analysis.ipynb
-│   ├── 04_paper_figures.ipynb
-│   ├── 05_gradcam_same_architecture.ipynb
-│   ├── 06_ablation_check_convnext_vit.ipynb
-│   ├── 07_no_weapon_false_alarms.ipynb
-│   ├── 08_annotation_validation.ipynb
-│   ├── 09_robustness_5fold.ipynb
-│   ├── 10_gradcam_all_models.ipynb
-│   ├── 11_clip_zero_shot.ipynb
-│   ├── 12_merge_and_statistics.ipynb
-│   └── 13_misclassified_test_images.ipynb
+BD-Local-Weapon-Classification/
+├── BD Local Weapon Notebooks/
+│   ├── stage0-single-multi-3parts.ipynb
+│   ├── nb1-background-removal.ipynb
+│   ├── nb2-training-scenarios.ipynb
+│   ├── nb3-analysis-scenarios.ipynb
+│   ├── nb4-paper-figures.ipynb
+│   ├── nb5-gradcam-architecture.ipynb
+│   ├── nb6-ablation-check.ipynb
+│   ├── nb7-no-weapon.ipynb
+│   ├── nb8-annotation-validation.ipynb
+│   ├── nb9-robustness-5fold.ipynb
+│   ├── nb10-gradcam-all-models.ipynb
+│   ├── nb11-clip-timing-checkpoints.ipynb
+│   ├── nb12-merge-and-statistics.ipynb
+│   └── nb13-misclassified-test-images.ipynb
 ├── splits/
-│   ├── manifest.csv          # image_id, path, class, subset, source, split, fold, group
+│   ├── manifest.csv          # image ID, path, class, subset, split, fold, similarity group, size
 │   ├── class_map.json
-│   ├── test.txt
-│   └── fold0.txt ... fold4.txt
-├── results/                  # CSV files behind the tables in the paper
-├── assets/                   # images used in this README
-├── docs/                     # supplementary_material.pdf
+│   ├── test.txt              # image IDs of the locked test set (419)
+│   └── fold0.txt … fold4.txt # image IDs of each cross-validation fold
+├── results/                  # CSV files behind the tables (see results/README.md)
+│   ├── tables/               # main analysis (Notebook 3)
+│   ├── gradcam_scenarios/    # Notebook 5
+│   ├── ablation_check/       # Notebook 6
+│   ├── no_weapon/            # Notebook 7
+│   ├── annotation_validation/# Notebook 8
+│   └── revision/             # Notebooks 9 to 13
+├── docs/
+│   └── supplementary_material.pdf
+├── assets/
+│   └── sample_images.png
 ├── requirements.txt
-├── CITATION.cff
 ├── LICENSE
 └── README.md
 ```
@@ -76,24 +83,24 @@ bd-lw-benchmark/
 
 ## Notebooks
 
-All notebooks were run on Kaggle (one Tesla T4 GPU). Run them in this order; each one reads the outputs of the earlier ones, which you attach with **Add Input > Your Work** on Kaggle. The first cell of every notebook lists its inputs.
+All notebooks were run on Kaggle with one Tesla T4 GPU. Run them in the order below; each one reads the outputs of the earlier ones, which are attached on Kaggle with **Add Input > Your Work**. The first cell of every notebook lists its inputs.
 
-| # | Notebook | What it does | GPU | Time |
-|---|---|---|---|---|
-| 0 | Stage 0 curation | Standardizes images, removes near-duplicates, builds similarity groups and the fixed split | No | ~20 min |
-| 1 | Background removal | Weapon masks and cut-outs with IS-Net | Yes | ~30 min |
-| 2 | Training scenarios | Trains all models and preprocessing pipelines in three scenarios (all, single, multi) | Yes | several sessions |
-| 3 | Analysis | Statistics, transfer, robustness, calibration, cost | Yes | ~1 h |
-| 4 | Paper figures | Figures for the paper | No | ~5 min |
-| 5 | Grad-CAM, same architecture | Grad-CAM across scenarios and pipelines | Yes | ~15 min |
-| 6 | Ablation check | Repeats key ablations with ConvNeXt-Tiny and ViT-S/16 | Yes | ~3.5 h |
-| 7 | Images without weapons | False alarms on 112 non-weapon images | Yes | ~10 min |
-| 8 | Annotation validation | Second-annotator agreement (Cohen's kappa) | No | ~5 min |
-| 9 | Robustness, 5 folds | Six corruptions at five levels, all fold models | Yes | ~30 min |
-| 10 | Grad-CAM, all models | Attention on the weapon, baselines, ViT attention rollout | Yes | ~20 min |
-| 11 | Zero-shot CLIP | CLIP baseline without training | Yes | ~20 min |
-| 12 | Merge and statistics | Combines 9 to 11, corrected CV statistics, group sizes | No | ~5 min |
-| 13 | Misclassified images | Every misclassified test image | No | ~2 min |
+| Notebook | What it does | GPU |
+|---|---|---|
+| [Stage 0: data curation](BD%20Local%20Weapon%20Notebooks/stage0-single-multi-3parts.ipynb) | Standardizes images, removes near-duplicates, builds similarity groups and the fixed split (test set and five folds) | No |
+| [1: Background removal](BD%20Local%20Weapon%20Notebooks/nb1-background-removal.ipynb) | Weapon masks and cut-outs with IS-Net | Yes |
+| [2: Training](BD%20Local%20Weapon%20Notebooks/nb2-training-scenarios.ipynb) | Trains all models and preprocessing pipelines in three scenarios (all, single, multi) | Yes |
+| [3: Analysis](BD%20Local%20Weapon%20Notebooks/nb3-analysis-scenarios.ipynb) | Statistics, transfer, robustness, calibration, capture-source test, cost | Yes |
+| [4: Paper figures](BD%20Local%20Weapon%20Notebooks/nb4-paper-figures.ipynb) | Figures for the manuscript | No |
+| [5: Grad-CAM across scenarios](BD%20Local%20Weapon%20Notebooks/nb5-gradcam-architecture.ipynb) | Grad-CAM of ConvNeXt-Tiny and ViT-S/16 for three pipelines and scenarios | Yes |
+| [6: Ablation check](BD%20Local%20Weapon%20Notebooks/nb6-ablation-check.ipynb) | Repeats key ablations with ConvNeXt-Tiny and ViT-S/16 | Yes |
+| [7: Images without weapons](BD%20Local%20Weapon%20Notebooks/nb7-no-weapon.ipynb) | False alarms on 112 non-weapon images | Yes |
+| [8: Annotation validation](BD%20Local%20Weapon%20Notebooks/nb8-annotation-validation.ipynb) | Second-annotator agreement (Cohen's kappa) | No |
+| [9: Robustness, 5 folds](BD%20Local%20Weapon%20Notebooks/nb9-robustness-5fold.ipynb) | Six corruptions at five levels for all fold models | Yes |
+| [10: Grad-CAM, all models](BD%20Local%20Weapon%20Notebooks/nb10-gradcam-all-models.ipynb) | Attention on the weapon, chance baselines, ViT attention rollout | Yes |
+| [11: Zero-shot CLIP](BD%20Local%20Weapon%20Notebooks/nb11-clip-timing-checkpoints.ipynb) | CLIP baseline without training; checkpoint names | Yes |
+| [12: Merge and statistics](BD%20Local%20Weapon%20Notebooks/nb12-merge-and-statistics.ipynb) | Combines 9 to 11, corrected CV statistics, group sizes | No |
+| [13: Misclassified images](BD%20Local%20Weapon%20Notebooks/nb13-misclassified-test-images.ipynb) | Every misclassified test image | No |
 
 ---
 
@@ -114,10 +121,10 @@ Clean accuracy is near perfect, but models trained on one image type fall to 0.5
 ## Quick start
 
 1. Download the dataset from [Mendeley Data link] and upload it to Kaggle as a private dataset.
-2. Open `notebooks/00_stage0_curation.ipynb` on Kaggle, add the dataset as input and run all cells.
+2. Open `stage0-single-multi-3parts.ipynb` on Kaggle, add the dataset as input and run all cells.
 3. Continue with the notebooks in the order above.
 
-To use the dataset with the official split, read `splits/manifest.csv`: train on images with `split == "trainval"` (use the `fold` column for cross-validation) and report results on `split == "test"`.
+To use the dataset with the official split, read `splits/manifest.csv`: train on the images whose `split` is not `"test"` (use the `fold` column for cross-validation) and report results on `split == "test"` (419 images).
 
 ### Requirements
 
