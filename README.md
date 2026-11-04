@@ -1,15 +1,15 @@
-# BD-LW: Bangladeshi Local Weapon Image Dataset and Benchmark
+# BD-LW: An Image Dataset and Multi-Criteria Benchmark for Local Weapon Recognition in Bangladesh
 
 > **Status:** this repository accompanies a manuscript currently **under review** at *Multimedia Tools and Applications*. It is shared so that reviewers and editors can access the dataset and check the results. The citation will be added after publication.
 
 BD-LW is an image dataset of six traditional Bangladeshi implements that are used as weapons in local violence. This repository contains the notebooks that build the dataset split, train and evaluate all models, and produce every table and figure in the manuscript.
 
-**Dataset:** [Mendeley Data link / DOI]
-**Manuscript:** "[Paper title]", submitted to *Multimedia Tools and Applications*
+**Dataset (Mendeley Data):** [https://doi.org/10.17632/byfmjny4bm.1](https://doi.org/10.17632/byfmjny4bm.1)
+**Manuscript:** "BD-LW: An Image Dataset and Multi-Criteria Benchmark for Local Weapon Recognition in Bangladesh", submitted to *Multimedia Tools and Applications*
 
 ## For reviewers
 
-- **Dataset:** download it from the link above. [If the dataset is not yet public: reviewers can request access at [email]; access is granted for the review only.]
+- **Dataset:** download it from Mendeley Data: [https://doi.org/10.17632/byfmjny4bm.1](https://doi.org/10.17632/byfmjny4bm.1).
 - **Fixed split:** `splits/manifest.csv` gives the exact test set and cross-validation folds used in the manuscript.
 - **Results:** every table in the manuscript can be traced to a notebook (see the table below), and the CSV files behind the tables are in `results/`.
 - **Supplementary material:** `docs/supplementary_material.pdf` (also submitted to the journal) lists which notebook produces each result in Section S4.
@@ -118,7 +118,7 @@ Clean accuracy is near perfect, but models trained on one image type fall to 0.5
 
 ## Quick start
 
-1. Download the dataset from [Mendeley Data link] and upload it to Kaggle as a private dataset.
+1. Download the dataset from [Mendeley Data](https://doi.org/10.17632/byfmjny4bm.1) and upload it to Kaggle as a private dataset.
 2. Open `stage0-single-multi-3parts.ipynb` on Kaggle, add the dataset as input and run all cells.
 3. Continue with the notebooks in the order above.
 
@@ -136,7 +136,13 @@ Main packages: Python 3.10+, PyTorch 2.x, timm 1.0, scikit-learn, OpenCV, pandas
 
 ## Citation
 
-The manuscript is under review. A citation will be added here after publication. Until then, please do not redistribute the dataset or use it in other publications without contacting the authors.
+The manuscript is under review; its citation will be added here after publication. Until then, please cite the dataset:
+
+```
+Sarker, A., Khan, J. U., Rahman, A., Rasheduzzaman, M. (2026). BD-LW: An Image Dataset of
+Bangladeshi Local Weapons for Fine-Grained Classification. Mendeley Data, V1.
+https://doi.org/10.17632/byfmjny4bm.1
+```
 
 ---
 
@@ -147,4 +153,4 @@ The manuscript is under review. A citation will be added here after publication.
 
 ## Contact
 
-[Corresponding author name], [email]
+[Aminur Rahman], [aminur.cse@diu.ac]
