@@ -61,8 +61,6 @@ BD-Local-Weapon-Classification/
 ├── splits/
 │   ├── manifest.csv          # image ID, path, class, subset, split, fold, similarity group, size
 │   ├── class_map.json
-│   ├── test.txt              # image IDs of the locked test set (419)
-│   └── fold0.txt … fold4.txt # image IDs of each cross-validation fold
 ├── results/                  # CSV files behind the tables (see results/README.md)
 │   ├── tables/               # main analysis (Notebook 3)
 │   ├── gradcam_scenarios/    # Notebook 5
