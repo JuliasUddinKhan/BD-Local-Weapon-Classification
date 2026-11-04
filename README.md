@@ -147,7 +147,7 @@ Main packages: Python 3.10+, PyTorch 2.x, timm 1.0, scikit-learn, OpenCV, pandas
 The manuscript is under review; its citation will be added here after publication. Until then, please cite the dataset:
 
 ```
-Sarker, A., Khan, J. U., Rahman, A., Rasheduzzaman, M. (2026). BD-LW: An Image Dataset of
+Sarker, A., Khan, J. U., Rahman, A., Rasheduzzaman, Md. (2026). BD-LW: An Image Dataset of
 Bangladeshi Local Weapons. Mendeley Data, V1.
 https://doi.org/10.17632/2ns343t8xg.1
 ```
