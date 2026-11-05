@@ -1,9 +1,0 @@
-model,subfolder,images,false_alarm_rate_95recall,mean_conf
-ResNet-50,look_alike,72,0.0139,0.588
-ResNet-50,regular_using_things,40,0.0,0.6817
-EfficientNet-B0,look_alike,72,0.0,0.5453
-EfficientNet-B0,regular_using_things,40,0.0,0.5913
-ConvNeXt-Tiny,look_alike,72,0.0,0.6386
-ConvNeXt-Tiny,regular_using_things,40,0.0,0.675
-ViT-S/16,look_alike,72,0.0139,0.611
-ViT-S/16,regular_using_things,40,0.0,0.7694

@@ -1,5 +1,0 @@
-image_id,true,models,scenarios,predicted
-3880e241521f,Kodal,resnet50,single,Kural
-3b2b02d1c68a,Kodal,"convnext_tiny, resnet50","all, single",Dao
-86592ae7378d,Kural,resnet50,multi,Shabol
-cf6567946825,Churi,"convnext_tiny, resnet50, vit_small_patch16_224",single,Kodal

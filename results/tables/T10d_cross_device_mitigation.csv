@@ -1,4 +1,0 @@
-variant,approach,n,F_iphone_f1,variant_f1,gain,only_variant_right,only_F_iphone_right,mcnemar_p,mcnemar_p_holm
-F_iphone_bgremoved,background removed,1831,0.5338,0.5947,0.0609,184,92,0.0,0.0
-F_iphone_camaug,camera-simulation augmentation,1831,0.5338,0.5068,-0.027,36,80,0.0001,0.0001
-LP_iphone,DINOv2 features + logistic regression,1831,0.5338,0.613,0.0792,218,106,0.0,0.0

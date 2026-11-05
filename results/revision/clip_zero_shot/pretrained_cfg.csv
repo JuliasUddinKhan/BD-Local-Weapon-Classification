@@ -1,6 +1,0 @@
-model,timm_version,tag,checkpoint,hf_hub_id,input_size,mean,std,license
-resnet50,1.0.30,a1_in1k,resnet50.a1_in1k,timm/resnet50.a1_in1k,"(3, 224, 224)","(0.485, 0.456, 0.406)","(0.229, 0.224, 0.225)",apache-2.0
-efficientnet_b0,1.0.30,ra_in1k,efficientnet_b0.ra_in1k,timm/efficientnet_b0.ra_in1k,"(3, 224, 224)","(0.485, 0.456, 0.406)","(0.229, 0.224, 0.225)",apache-2.0
-convnext_tiny,1.0.30,in12k_ft_in1k,convnext_tiny.in12k_ft_in1k,timm/convnext_tiny.in12k_ft_in1k,"(3, 224, 224)","(0.485, 0.456, 0.406)","(0.229, 0.224, 0.225)",apache-2.0
-vit_small_patch16_224,1.0.30,augreg_in21k_ft_in1k,vit_small_patch16_224.augreg_in21k_ft_in1k,timm/vit_small_patch16_224.augreg_in21k_ft_in1k,"(3, 224, 224)","(0.5, 0.5, 0.5)","(0.5, 0.5, 0.5)",apache-2.0
-vit_small_patch14_dinov2,1.0.30,lvd142m,vit_small_patch14_dinov2.lvd142m,timm/vit_small_patch14_dinov2.lvd142m,"(3, 518, 518)","(0.485, 0.456, 0.406)","(0.229, 0.224, 0.225)",apache-2.0

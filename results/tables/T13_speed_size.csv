@@ -1,6 +1,0 @@
-model,input_px,params_M,GFLOPs,cpu_ms_per_image,gpu_ms_per_image_b1,gpu_images_per_s_b64,hardware
-convnext_tiny,384,27.82,26.18,152.75,7.24,210.21,"GPU: Tesla T4 | CPU: Intel(R) Xeon(R) CPU @ 2.00GHz, 4 threads"
-vit_small_patch16_224,384,21.81,24.84,180.97,6.1,297.75,"GPU: Tesla T4 | CPU: Intel(R) Xeon(R) CPU @ 2.00GHz, 4 threads"
-resnet50,384,23.52,24.02,164.07,6.36,216.21,"GPU: Tesla T4 | CPU: Intel(R) Xeon(R) CPU @ 2.00GHz, 4 threads"
-efficientnet_b0,384,4.02,2.26,55.57,8.17,542.88,"GPU: Tesla T4 | CPU: Intel(R) Xeon(R) CPU @ 2.00GHz, 4 threads"
-DINOv2 ViT-S/14 + logistic regression,224,21.63,11.03,77.36,6.25,746.49,"GPU: Tesla T4 | CPU: Intel(R) Xeon(R) CPU @ 2.00GHz, 4 threads"
