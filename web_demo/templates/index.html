@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BD-LW Weapon Recognition</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <div class="wrap head">
+    <div>
+      <h1>BD-LW &middot; Local Weapon Recognition</h1>
+      <p>Image classification of six Bangladeshi local weapons</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- LEFT: upload card + result -->
+  <section class="panel left">
+    <div class="uhead">
+      <span class="uicon">
+        <svg viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5"/><path d="M12 12v8M9 15l3-3 3 3"/></svg>
+      </span>
+      <div class="utext">
+        <div class="utitle">Upload image</div>
+        <div class="usub">Select a photo of one of the six local weapons</div>
+      </div>
+      <button id="clear" class="x" title="Clear" disabled>&times;</button>
+    </div>
+
+    <div class="lbody">
+      <label id="drop" class="drop">
+        <input id="file" type="file" accept="image/*" hidden>
+        <svg class="dicon" viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5"/><path d="M12 12v8M9 15l3-3 3 3"/></svg>
+        <strong>Choose a file or drag &amp; drop it here</strong>
+        <span>JPEG, PNG and WEBP formats, up to 20 MB</span>
+        <span class="browse">Browse File</span>
+      </label>
+
+      <div class="filerow">
+        <span class="thumb"><img id="thumb" alt="" hidden></span>
+        <div class="finfo">
+          <div id="fname" class="fname">No file selected</div>
+          <div class="fmeta"><span id="fsize">&nbsp;</span><span id="fstatus" class="fstatus"></span></div>
+        </div>
+        <button id="remove" class="x small" title="Remove" disabled>&times;</button>
+      </div>
+
+      <div class="bgrow">
+        <span>Background</span>
+        <div class="seg" role="radiogroup">
+          <button id="bgkeep" class="on" type="button">Kept</button>
+          <button id="bgremove" type="button">Removed</button>
+        </div>
+      </div>
+
+      <button id="go" class="primary go" disabled>Recognize</button>
+
+      <div class="rcard">
+        <div class="rtitle">Result</div>
+        <div id="verdict" class="verdict">
+          <div class="vtop"><span class="name" id="name">&mdash;</span><span class="pill" id="conf"></span></div>
+          <div class="sub" id="sub">Upload an image and press Recognize.</div>
+        </div>
+        <div class="steps">
+          <div><span>Model input</span><b id="s_res">&ndash;</b></div>
+          <div><span>Colour</span><b id="votes">&ndash;</b></div>
+          <div><span>Background</span><b id="s_bg">&ndash;</b></div>
+          <div><span>Time</span><b id="time">&ndash;</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT: uploaded image (top) and Grad-CAM (bottom) -->
+  <div class="right">
+    <section class="panel ip">
+      <div class="ptitle"><span>1. <span class="long">Uploaded image</span><span class="short">Photo</span></span><span id="dims" class="pname"></span></div>
+      <div class="pbody">
+        <div class="frame" id="f1">
+          <div id="nohint" class="hint"><strong>No image yet</strong><span>The uploaded photo will appear here.</span></div>
+          <img id="preview" alt="" hidden>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel ip">
+      <div class="ptitle" title="Grad-CAM of the 384 px model input, last ConvNeXt stage">
+        <span>2. Grad-CAM<span class="long"> of our model</span></span>
+        <span class="legend"><span>Low</span><span class="scale"></span><span>High</span></span>
+      </div>
+      <div class="pbody">
+        <div class="frame" id="f2">
+          <div id="wait" class="hint"><strong>No result yet</strong><span>The Grad-CAM map will appear here.</span></div>
+          <div id="busy" class="hint" hidden><strong>Processing&hellip;</strong></div>
+          <img id="marked" alt="" hidden>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="wrap">BD-LW dataset &middot; <a href="https://doi.org/10.17632/2ns343t8xg.1" target="_blank" rel="noopener">doi.org/10.17632/2ns343t8xg.1</a> &middot; For research use</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
