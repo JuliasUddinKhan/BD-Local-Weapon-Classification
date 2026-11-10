@@ -1,4 +1,4 @@
-# BD-LW: An Image Dataset and Multi-Criteria Benchmark for Local Weapon Recognition in Bangladesh
+# BD-LW: A Leakage-Aware Image Dataset and Stress-Test Benchmark for Traditional Weapons in Bangladesh
 
 **Dataset (Mendeley Data):** [https://doi.org/10.17632/2ns343t8xg.1](https://doi.org/10.17632/2ns343t8xg.1)
 
