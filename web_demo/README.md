@@ -17,7 +17,7 @@ python app.py                            # start the app, then open http://127.0
 ```
 
 macOS / Linux: use `source venv/bin/activate` instead of `venv\Scripts\activate`.
-Before the first start, copy the five trained models into `weights/` (step 4 below).
+The five trained models are already included in `weights/` (`convnext_tiny_fold0.pt` to `fold4.pt`); keep the `.pt` extension.
 To stop the app press Ctrl + C; after changing any file, restart `python app.py` and reload the page with Ctrl + F5.
 
 ## What this demo is and is not
@@ -27,7 +27,7 @@ To stop the app press Ctrl + C; after changing any file, restart `python app.py`
   and the same Grad-CAM as Notebook 10 (fold 0). Confidence is the mean over the five fold models and two views
   of softmax(logits / T), T = 0.3919, exactly as in Notebook 7.
   Results below the demo threshold of 0.95 (`DEMO_THRESHOLD`) are shown as "Not recognised". The paper's own threshold
-  (0.9997, Section 4.11 and Supplementary Table S11) keeps 95 % of the BD-LW test weapons and accepted none
+  (0.9997, Section 4.11 and Online Resource 1, Table S11) keeps 95 % of the BD-LW test weapons and accepted none
   of the 112 images without weapons, but it rejects most photos taken outside the BD-LW capture conditions.
   At 0.95, 15 of those 112 images (13.4 %) would still be accepted as a weapon, so a "weapon" result is not
   proof that the image shows one of the six weapons. The threshold is a demo setting, not a result of the paper.
@@ -37,7 +37,7 @@ To stop the app press Ctrl + C; after changing any file, restart `python app.py`
 
 ## Run in PyCharm
 
-1. **Open the folder.** Unzip and use *File → Open* on the `bdlw_web` folder.
+1. **Open the folder.** Clone or download this repository and use *File → Open* on the `web_demo` folder.
 2. **Create the interpreter.** *Settings → Project → Python Interpreter → Add Interpreter → Virtualenv* (Python 3.10–3.13).
 3. **Install packages.** In the PyCharm terminal (with the virtual environment active):
    ```
@@ -47,18 +47,13 @@ To stop the app press Ctrl + C; after changing any file, restart `python app.py`
    The second command downloads the IS-Net background-removal model once (about 170 MB, needs internet).
    If it cannot be downloaded, save `isnet-general-use.onnx` from
    https://github.com/danielgatis/rembg/releases/download/v0.0.0/isnet-general-use.onnx into `C:\Users\<you>\.u2net\`.
-4. **Add the trained models.** From the Notebook 2 output, copy the five checkpoints of
-   `results/all/convnext_tiny/F/weights/` into `weights/` and rename them:
+4. **Check the trained models.** The five ConvNeXt-Tiny fold models (recipe F) are included in this repository:
    ```
-   fold0.pt -> weights/convnext_tiny_fold0.pt
-   fold1.pt -> weights/convnext_tiny_fold1.pt
-   fold2.pt -> weights/convnext_tiny_fold2.pt
-   fold3.pt -> weights/convnext_tiny_fold3.pt
-   fold4.pt -> weights/convnext_tiny_fold4.pt
-   weights/convnext_tiny_norm.json   (already included)
+   weights/convnext_tiny_fold0.pt ... weights/convnext_tiny_fold4.pt   (about 53 MB each)
+   weights/convnext_tiny_norm.json
    ```
-   With only one file (`weights/convnext_tiny.pt`) the demo still runs, but the threshold below was derived
-   for the five-fold mean, so use all five folds to reproduce the paper.
+   They are the checkpoints `results/all/convnext_tiny/F/weights/fold0.pt` to `fold4.pt` from Notebook 2.
+   Keep the `.pt` extension: if a browser saves a file as `.zip`, rename it back to `.pt` (do not unzip it).
 5. **Start the app.** `python app.py`, then open **http://127.0.0.1:5000** in the browser.
 
 ## Optional demo filter (`PAPER_MODE = False`)
