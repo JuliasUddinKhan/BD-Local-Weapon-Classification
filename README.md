@@ -1,59 +1,95 @@
-# BD-LW: A Leakage-Aware Image Dataset and Stress-Test Benchmark for Traditional Weapons in Bangladesh
+# BD-LW Local Weapon Recognition (demo web interface)
 
-**Dataset (Mendeley Data):** [https://doi.org/10.17632/2ns343t8xg.1](https://doi.org/10.17632/2ns343t8xg.1)
+Upload a photo and the demo shows which of the six BD-LW classes our model assigns
+(Churi, Dao, Khor, Kodal, Kural, Shabol), its confidence, and the Grad-CAM map of the model input.
+The background can be kept (as in the paper) or removed before recognition.
 
-BD-LW (Bangladeshi Local Weapon) is an image dataset of six traditional implements that are common in Bangladeshi households and farms and are also used as weapons in local violence.
+## Quick start (commands)
 
+Windows PowerShell, run in the project folder (the one that contains `app.py`):
 
-## Dataset
+```
+python -m venv venv                      # once: create the virtual environment
+venv\Scripts\activate                    # every time: activate it
+pip install -r requirements.txt          # once: install Flask, PyTorch, timm, rembg, ...
+python -c "from rembg import new_session; new_session('isnet-general-use')"   # once: download IS-Net (~170 MB)
+python app.py                            # start the app, then open http://127.0.0.1:5000
+```
 
-The Mendeley archive contains **3,075** original photographs. After 125 near-duplicates are removed, **2,950** images form the benchmark.
+macOS / Linux: use `source venv/bin/activate` instead of `venv\Scripts\activate`.
+Before the first start, download the five trained models into `weights/` (step 4 below).
+To stop the app press Ctrl + C; after changing any file, restart `python app.py` and reload the page with Ctrl + F5.
 
-| Label | Class | English | Original photos | Benchmark images |
-|---|---|---|---|---|
-| 0 | Churi | Knife | 530 | 521 |
-| 1 | Dao | Machete | 533 | 530 |
-| 2 | Khor | Straight razor | 536 | 471 |
-| 3 | Kodal | Hoe | 482 | 477 |
-| 4 | Kural | Axe | 486 | 477 |
-| 5 | Shabol | Iron crowbar | 508 | 474 |
-| | | **Total** | **3,075** | **2,950** |
+## What this demo is and is not
 
-| Subset | Content | Original photos | Benchmark images |
-|---|---|---|---|
-| Single | One weapon per image | 1,849 | 1,776 |
-| Multi | Several weapons of the same class | 1,226 | 1,174 |
+- **`PAPER_MODE = True` (default, top of `model.py`)**: the demo runs the evaluated model of the paper:
+  the five ConvNeXt-Tiny E1 fold models, recipe F (384 px letterbox, grey padding 128, horizontal-flip averaging)
+  and the same Grad-CAM as Notebook 10 (fold 0). Confidence is the mean over the five fold models and two views
+  of softmax(logits / T), T = 0.3919, exactly as in Notebook 7.
+  Results below the demo threshold of 0.95 (`DEMO_THRESHOLD`) are shown as "Not recognised". The paper's own threshold
+  (0.9997, Section 4.11 and Online Resource 1, Table S11) keeps 95 % of the BD-LW test weapons and accepted none
+  of the 112 images without weapons, but it rejects most photos taken outside the BD-LW capture conditions.
+  At 0.95, 15 of those 112 images (13.4 %) would still be accepted as a weapon, so a "weapon" result is not
+  proof that the image shows one of the six weapons. The threshold is a demo setting, not a result of the paper.
+- **`PAPER_MODE = False`**: an extra, demo-only filter based on a general ImageNet classifier (ResNet-50) reports
+  photos that do not show one of the six weapons as "Not one of the six local weapons". Its thresholds were set
+  by hand on a few images. This filter is **not** part of the method or the results reported in the paper.
 
-## Train, validation and test split
+## Run in PyCharm
 
-The benchmark uses one fixed split. Similar photographs (for example, several shots of the same object) are kept on the same side of the split, so no test image has a near-identical copy in the training data.
+1. **Open the folder.** Clone or download this repository and use *File → Open* on the `web_demo` folder.
+2. **Create the interpreter.** *Settings → Project → Python Interpreter → Add Interpreter → Virtualenv* (Python 3.10–3.13).
+3. **Install packages.** In the PyCharm terminal (with the virtual environment active):
+   ```
+   pip install -r requirements.txt
+   python -c "from rembg import new_session; new_session('isnet-general-use')"
+   ```
+   The second command downloads the IS-Net background-removal model once (about 170 MB, needs internet).
+   If it cannot be downloaded, save `isnet-general-use.onnx` from
+   https://github.com/danielgatis/rembg/releases/download/v0.0.0/isnet-general-use.onnx into `C:\Users\<you>\.u2net\`.
+4. **Download the trained models.** The five ConvNeXt-Tiny fold models (recipe F, about 110 MB each) are attached to the
+   [v1.0 release](https://github.com/JuliasUddinKhan/BD-Local-Weapon-Classification/releases/tag/v1.0).
+   Download them into `weights/` by hand, or run in the `web_demo` folder (Windows PowerShell):
+   ```
+   0..4 | ForEach-Object { Invoke-WebRequest "https://github.com/JuliasUddinKhan/BD-Local-Weapon-Classification/releases/download/v1.0/convnext_tiny_fold$_.pt" -OutFile "weights/convnext_tiny_fold$_.pt" }
+   ```
+   macOS / Linux:
+   ```
+   for i in 0 1 2 3 4; do curl -L -o weights/convnext_tiny_fold$i.pt https://github.com/JuliasUddinKhan/BD-Local-Weapon-Classification/releases/download/v1.0/convnext_tiny_fold$i.pt; done
+   ```
+   `weights/` should then contain:
+   ```
+   weights/convnext_tiny_fold0.pt ... weights/convnext_tiny_fold4.pt
+   weights/convnext_tiny_norm.json   (already included)
+   ```
+   The files are the checkpoints of `results/all/convnext_tiny/F/weights/fold0.pt` to `fold4.pt` from Notebook 2.
+   With only one file (`weights/convnext_tiny.pt`) the demo still runs, but the threshold below was derived
+   for the five-fold mean, so use all five folds to reproduce the paper.
+5. **Start the app.** `python app.py`, then open **http://127.0.0.1:5000** in the browser.
 
-| Part | Images | Single | Multi |
-|---|---|---|---|
-| Test (locked) | 419 | 255 | 164 |
-| Train / validation | 2,531 | 1,521 | 1,010 |
-| **Total** | **2,950** | **1,776** | **1,174** |
+## Optional demo filter (`PAPER_MODE = False`)
 
-The train/validation part is divided into five cross-validation folds. In each round, one fold is used for validation and the other four for training.
+The general ImageNet model is downloaded automatically the first time (internet needed once). An image is reported
+as not one of the six weapons when it looks like a firearm, when it contains almost nothing tool-like (also checked
+on the region marked by our model's Grad-CAM), or when the BD-LW probability is below 70 %.
 
-| Fold | Images | Single | Multi |
-|---|---|---|---|
-| 0 | 507 | 323 | 184 |
-| 1 | 502 | 297 | 205 |
-| 2 | 525 | 302 | 223 |
-| 3 | 499 | 299 | 200 |
-| 4 | 498 | 300 | 198 |
+Optional stricter check: `python build_bank.py --data "<dataset folder>" --manifest splits/manifest.csv`
+adds a similarity test against the **training** photos. Always pass `--manifest`, so that test images are not used.
 
-Test images per class: Churi 68, Dao 79, Khor 62, Kodal 67, Kural 63, Shabol 80.
+Settings at the top of `model.py`: `DEMO_THRESHOLD` (0.95), `PAPER_MODE`, and for the optional filter `HIGH`, `LOW`, `TOOL_MIN`, `CROP_TOOL_MIN`.
 
-## Split files
+## Background switch (Kept / Removed)
 
-| File | Contents |
+"Removed" runs the same background removal as the paper's preprocessing (IS-Net via rembg, `isnet-general-use`;
+mask at 0.5, gaps closed, small holes filled, specks removed, weapon on grey 128) and then classifies the result with
+the same recipe-F models, which were trained with the background kept. The switch therefore shows how much a prediction
+depends on the background (Section 4.2 of the paper). The IS-Net weights (about 170 MB) are downloaded once on first use.
+
+## Files
+
+| File | Purpose |
 |---|---|
-| `splits/manifest.csv` | The 2,950 benchmark images: image ID, original file (`source_file`), class, subset, capture source, split, fold (−1 for test) and similarity group |
-| `splits/class_map.json` | Class names and labels |
-| `splits/test.txt` | Image IDs of the test set |
-| `splits/fold0.txt` … `fold4.txt` | Image IDs of each cross-validation fold |
-| `splits/removed_duplicates.csv` | The 125 near-duplicates removed from the original photographs |
-
-To use the split, match `source_file` in `manifest.csv` to the files in the Mendeley archive, train and validate on the images with `split == "trainval"` using the `fold` column, and report results on `split == "test"`.
+| `app.py` | Flask server (run this) |
+| `model.py` | Model loading, preprocessing (recipe F), background removal, Grad-CAM, optional demo filter |
+| `build_bank.py` | Optional bank of training-image embeddings for the demo filter |
+| `templates/index.html`, `static/` | Web page, style and script |
